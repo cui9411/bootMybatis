@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/mbg?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    dirver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    #指定数据库提供商
+    database: mysql
+    #打印SQL
+    show-sql: true
+    #是jpa层面对数据表生成策略的控制
+    generate-ddl: true
+    hibernate:
+      #是jpa实现hibernate层面上对数据表生成策略的控制
+      #无表就创建,属性变化就更新,否则不动
+      ddl-auto: update
+      #指定命名策略
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  main:
+    allow-bean-definition-overriding: true
+
+mybatis:
+  #config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml # 指定xml映射文件路径
+  type-aliases-package: com.bootMybatis.entity # 指定mybatis别名包
+
+logging:
+  level:
+    com.cui: debug # 配置日志
+
+server:
+  port: 8080
